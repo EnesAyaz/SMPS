@@ -1,4 +1,4 @@
-sampling_time= 1e-7; % sample time
+sampling_time= 1e-8; % sample time
 
 
 f_s= 100e3; % Hz
