@@ -16,7 +16,6 @@ B=14.7 ; %%mm
 A= 26.9 ; %%mm
 A_core= (A-B)*C/2 ; %% mm^2 
 A_w= pi*B^2/4 ; % mm^2 
-A_w= 156 ; % mm^2 
 
 %% condcutor  AWG 25 
 k_cu= 0.6; % copper 
@@ -27,26 +26,18 @@ paralel_number= required_A_cu/A_cu;
 
 %% trial for 
 L_max =k_cu*J_rms*B_max*A_w*A_core*1e-6/I_max*I_rms;
-N_max=k_cu*A_w/required_A_cu;
-a=0;
+
 for i=1:1000
 
 if L_max > L
-    A_w=0.8*A_w;
-    L_max =k_cu*J_rms*B_max*A_w*A_core*1e-6/I_max*I_rms;
+    Aw=0.8*Aw;
 else 
-    N=k_cu*A_w/required_A_cu;
-    if a==0 
-        
-       disp(N); 
-       a=a+1;
-    end
+    N=k_cu*Aw/A_cu;
+    break;
 end
 
 end
-%% Al calculation 0079894A7
-
-AT=linspace(0,1000,1000);
+%% loss 
 
 
 
